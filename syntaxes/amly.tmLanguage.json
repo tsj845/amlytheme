@@ -1,0 +1,124 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "amly",
+	"patterns": [
+		{"include": "#main"}
+	],
+	"repository": {
+		"main": {
+			"patterns": [
+				{"include": "#documents"},
+				{"include": "#keywords"},
+				{"include": "#strings"},
+				{"include": "#comments"},
+				{"include": "#numbers"}
+			]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.amly",
+				"match": "\\b(if|while|for|return)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.amly",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.amly",
+					"match": "\\\\."
+				}
+			]
+		},
+		"dummy": {},
+		"comments": {
+			"name": "comment.amly",
+			"match": "~~.*$"
+		},
+		"datstype": {
+			"name": "object.type.amly",
+			"match": "(?<=<)[^ ]+(?= )"
+		},
+		"datskey": {
+			"name": "object.data.key.amly",
+			"match": "(?<= )([a-zA-Z_]+[0-9]*[a-zA-Z_]*)(?==)"
+		},
+		"datsval": {
+			"name": "object.data.value.amly",
+			"match": "(?<==)([a-zA-Z_]+[0-9]*[a-zA-Z_]*)(?= )"
+		},
+		"datsset": {
+			"name": "object.data.assign.amly",
+			"match": "="
+		},
+		"datstruct": {
+			"name": "object.amly",
+			"begin": "<",
+			"end": ">",
+			"contentName": "object.data.amly",
+			"patterns": [{"include": "#strings"},{"include": "#numbers"},{"include": "#datstype"}, {"include": "#datsset"}, {"include": "#datskey"}, {"include": "#datsval"}]
+		},
+		"numbers": {
+			"name": "number.amly",
+			"match": "(?<![a-zA-Z_])[0-9]+"
+		},
+		"dpset": {
+			"name": "document.property.assign.amly",
+			"match": " = "
+		},
+		"dpkey": {
+			"name": "document.property.key.amly",
+			"match": "^.*(?= =)"
+		},
+		"dpval": {
+			"name": "document.property.value.amly",
+			"match": "(?<== ).*"
+		},
+		"docprops": {
+			"name": "document.property.amly",
+			"patterns": [{"include": "#dpkey"}, {"include": "#dpset"}, {"include": "#dpval"}]
+		},
+		"dictblock": {
+			"name": "block.dict.amly",
+			"begin": "\\*\\*(.+)\\*\\*",
+			"end": "\\*\\*/\\1\\*\\*",
+			"beginCaptures": {
+				"0": {"name": "block.dict.open.amly"}
+			},
+			"endCaptures": {
+				"0": {"name": "block.dict.close.amly"}
+			},
+			"patterns": [{"include": "#documents"},{"include": "#comments"},{"include": "#strings"},{"include": "#datstruct"},{"include": "#numbers"},{"include": "#docprops"},{"include": "#dictblock"}]
+		},
+		"listblock": {
+			"name": "block.list.amly",
+			"begin": "\\*&(.+)\\*\\*",
+			"end": "\\*\\*/\\1\\*\\*",
+			"beginCaptures": {
+				"0": {"name": "block.list.open.amly"}
+			},
+			"endCaptures": {
+				"0": {"name": "block.list.close.amly"}
+			},
+			"patterns": [{"include": "#dictblock"},{"include": "#documents"},{"include": "#comments"},{"include": "#strings"},{"include": "#datstruct"},{"include": "#numbers"},{"include": "#docprops"}]
+		},
+		"blocks": {
+			"name": "block.amly",
+			"patterns": [{"include": "#dictblock"}, {"include": "#listblock"}]
+		},
+		"documents": {
+			"name": "document.amly",
+			"begin": "```",
+			"end": "```",
+			"beginCaptures": {
+				"0": {"name": "document.open.amly"}
+			},
+			"endCaptures": {
+				"0": {"name": "document.close.amly"}
+			},
+			"patterns": [{"include": "#comments"},{"include": "#strings"},{"include": "#datstruct"},{"include": "#numbers"},{"include": "#docprops"},{"include": "#blocks"}]
+		}
+	},
+	"scopeName": "source.amly"
+}

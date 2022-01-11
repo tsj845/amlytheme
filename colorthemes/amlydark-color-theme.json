@@ -1,88 +1,102 @@
 {
-    "tokenColors":[
+    "semanticHighlighting" : true,
+    "tokenColors" : [
         {
-            "scope": "document.amly",
-            "settings": {
-                "foreground": "#ff008c"
+            "scope" : "source",
+            "settings" : {
+                "foreground" : "#d4d4d4"
             }
         },
         {
-            "scope": "object.amly",
-            "settings": {
-                "foreground": "#1fc0ff",
+            "scope" : ["string", "document.property.value.amly", "object.data.value.amly"],
+            "settings" : {
+                "foreground" : "#d89845"
             }
         },
         {
-            "scope": "object.type.amly",
-            "settings": {
-                "foreground": "#fbff00",
+            "scope" : ["entity.name.type.class", "entity.name.type"],
+            "settings" : {
+                "foreground" : "#36c7cc"
             }
         },
         {
-            "scope": "object.data.amly",
-            "settings": {
-                "foreground": "#00d612",
+            "scope" : ["storage.type", "variable.language", "constant", "keyword"],
+            "settings" : {
+                "foreground" : "#569cd6"
             }
         },
         {
-            "scope": ["object.data.key.amly", "document.property.key.amly"],
-            "settings": {
-                "foreground": "#00e1ff"
+            "scope" : "constant.numeric",
+            "settings" : {
+                "foreground" : "#b5cea8"
             }
         },
         {
-            "scope": ["object.data.value.amly", "document.property.value.amly"],
-            "settings": {
-                "foreground": "#ff7300"
+            "scope" : "object.amly",
+            "settings" : {
+                "foreground" : "#1fc0ff",
             }
         },
         {
-            "scope": ["object.data.assign.amly", "document.property.assign.amly"],
-            "settings": {
-                "foreground": "#d9ff00"
+            "scope" : "object.type.amly",
+            "settings" : {
+                "foreground" : "#fbff00",
             }
         },
         {
-            "scope": ["block.dict.open.amly", "block.dict.close.amly"],
-            "settings": {
-                "foreground": "#91ff00"
+            "scope" : "object.data.amly",
+            "settings" : {
+                "foreground" : "#00d612",
             }
         },
         {
-            "scope": ["block.list.open.amly", "block.list.close.amly"],
-            "settings": {
-                "foreground": "#00ff9d"
+            "scope" : ["object.data.key.amly", "document.property.key.amly"],
+            "settings" : {
+                "foreground" : "#00b7ff"
             }
         },
         {
-            "scope": "comment.amly",
-            "settings": {
-                "foreground": "#0f9442"
+            "scope" : ["object.data.assign.amly", "document.property.assign.amly", "document.amly"],
+            "settings" : {
+                // "foreground" : "#d9ff00"
+                "foreground" : "#d4d4d4"
             }
         },
         {
-            "scope": "support.type.property-name.json.comments",
-            "settings": {
-                "foreground": "#12aad8",
+            "scope" : ["block.dict.open.amly", "block.dict.close.amly"],
+            "settings" : {
+                "foreground" : "#91ff00"
             }
         },
         {
-            "scope": "constant.language.json.comments",
-            "settings": {
-                "foreground": "#19dcff",
+            "scope" : ["block.list.open.amly", "block.list.close.amly"],
+            "settings" : {
+                "foreground" : "#00ff9d"
             }
         },
         {
-            "scope": "number.amly",
-            "settings": {
-                "foreground": "#0084ff",
+            "scope" : "comment",
+            "settings" : {
+                "foreground" : "#23a323"
             }
         },
         {
-            "scope": ["document.open.amly","document.close.amly"],
-            "settings": {
-                "foreground": "#fffb00",
-                "fontStyle": "bold underline"
+            "scope" : "support.type.property-name.json.comments",
+            "settings" : {
+                "foreground" : "#12aad8",
+            }
+        },
+        {
+            "scope" : "constant.language.json.comments",
+            "settings" : {
+                "foreground" : "#19dcff",
+            }
+        },
+        {
+            "scope" : ["document.open.amly","document.close.amly"],
+            "settings" : {
+                "foreground" : "#fffb00",
+                "fontStyle" : "bold underline"
             }
         }
     ]

@@ -19,8 +19,8 @@
         ["\"", "\""],
     ],
     "indentationRules": {
-        "increaseIndentPattern": "^(```)&",
-        "decreaseIndentPattern": "^(```)&"
+        "increaseIndentPattern": "^[^\\w\\s\\W\\S]",
+        "decreaseIndentPattern": "^[^\\w\\s\\W\\S]"
     },
     "folding": {
         "markers": {

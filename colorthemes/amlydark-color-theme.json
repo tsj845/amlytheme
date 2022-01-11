@@ -83,7 +83,7 @@
         {
             "scope" : "support.type.property-name.json.comments",
             "settings" : {
-                "foreground" : "#12aad8",
+                "foreground" : "#9cdcfe"
             }
         },
         {

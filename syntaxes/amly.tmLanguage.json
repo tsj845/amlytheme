@@ -42,11 +42,11 @@
 		},
 		"datskey": {
 			"name": "object.data.key.amly",
-			"match": "(?<= )([a-zA-Z_]+[0-9]*[a-zA-Z_]*)(?==)"
+			"match": "(?<= )([a-zA-Z0-9_-]+)(?==)"
 		},
 		"datsval": {
 			"name": "object.data.value.amly",
-			"match": "(?<==)([a-zA-Z0-9_]+)(?= |>)"
+			"match": "(?<==)([a-zA-Z0-9_-]+)(?= |>)"
 		},
 		"datsset": {
 			"name": "object.data.assign.amly",
